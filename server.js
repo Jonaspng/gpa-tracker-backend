@@ -13,7 +13,7 @@ const app = express();
 app.set("trust proxy", 1);
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://gpa-tracker.up.railway.app/");
+  res.setHeader("Access-Control-Allow-Origin", "https://gpa-tracker.up.railway.app");
   res.setHeader("Access-Control-Allow-Headers", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET , POST , DELETE , PUT , OPTIONS");
   res.setHeader("Access-Control-Allow-Credentials", true);
