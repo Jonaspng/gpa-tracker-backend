@@ -92,7 +92,7 @@ function toNumber(a) {
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "https://gpa-tracker2021-api.herokuapp.com/auth/google/gpatracker",
+  callbackURL: "https://gpa-tracker-backend.up.railway.app/auth/google/gpatracker",
   passReqToCallback: true,
   userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 },
