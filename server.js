@@ -13,7 +13,7 @@ const app = express();
 app.set("trust proxy", 1);
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://gpatracker-cvwo.herokuapp.com");
+  res.setHeader("Access-Control-Allow-Origin", "https://gpa-tracker.up.railway.app/");
   res.setHeader("Access-Control-Allow-Headers", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET , POST , DELETE , PUT , OPTIONS");
   res.setHeader("Access-Control-Allow-Credentials", true);
@@ -116,13 +116,13 @@ app.post("/register", function(req, res) {
   }, req.body.password, function(err, user) {
     if (err) {
       console.log(err);
-      res.redirect("https://gpatracker-cvwo.herokuapp.com/register");
+      res.redirect("https://gpa-tracker.up.railway.app/register");
     } else {
       user.name = req.body.name;
       user.semesters = 0;
       user.save();
       passport.authenticate("local")(req, res, function() {
-        res.redirect("https://gpatracker-cvwo.herokuapp.com/profile");
+        res.redirect("https://gpa-tracker.up.railway.app/profile");
       });
     }
   });
@@ -138,7 +138,7 @@ app.post("/login", function(req, res) {
       console.log(err);
     } else {
       passport.authenticate("local")(req, res, function() {
-        res.redirect("https://gpatracker-cvwo.herokuapp.com/dashboard");
+        res.redirect("https://gpa-tracker.up.railway.app//dashboard");
       });
     }
   });
@@ -151,8 +151,8 @@ app.get("/auth/google",
 
 app.get( "/auth/google/gpatracker",
     passport.authenticate( "google", {
-        successRedirect: "https://gpatracker-cvwo.herokuapp.com/profile",
-        failureRedirect: "https://gpatracker-cvwo.herokuapp.com/login"
+        successRedirect: "https://gpa-tracker.up.railway.app/profile",
+        failureRedirect: "https://gpa-tracker.up.railway.app/login"
 }));
 
 app.post("/profile", function(req, res) {
@@ -189,7 +189,7 @@ app.post("/profile", function(req, res) {
         result.semesters = parseInt(semesters);
         result.GPA = Gpa;
         result.save();
-        res.redirect("https://gpatracker-cvwo.herokuapp.com/dashboard");
+        res.redirect("hhttps://gpa-tracker.up.railway.app/dashboard");
       }
     });
   }
@@ -226,7 +226,7 @@ app.post("/profile2", function(req, res) {
         result.GPA = GPA;
         result.semesters = semesters;
         result.save();
-        res.redirect("https://gpatracker-cvwo.herokuapp.com/dashboard");
+        res.redirect("https://gpa-tracker.up.railway.app/dashboard");
       }
     });
   }
@@ -241,7 +241,7 @@ app.post("/reset", function(req,res){
         result.GPA = [];
         result.semesters=0;
         result.save();
-        res.redirect("https://gpatracker-cvwo.herokuapp.com/dashboard");
+        res.redirect("https://gpa-tracker.up.railway.app/dashboard");
       }
     });
   }
@@ -315,7 +315,7 @@ app.get("/api/profile", function(req, res) {
 
 app.post("/logout", function(req, res) {
   req.logout();
-  res.redirect("https://gpatracker-cvwo.herokuapp.com/");
+  res.redirect("https://gpa-tracker.up.railway.app/");
 });
 
 app.listen(process.env.PORT || 5000, function() {
