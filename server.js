@@ -189,7 +189,7 @@ app.post("/profile", function(req, res) {
         result.semesters = parseInt(semesters);
         result.GPA = Gpa;
         result.save();
-        res.redirect("hhttps://gpa-tracker.up.railway.app/dashboard");
+        res.redirect("https://gpa-tracker.up.railway.app/dashboard");
       }
     });
   }
